@@ -34,11 +34,10 @@ from the dictionary: take each value from each candidate and divide that value b
 store the value in a list called percentVotes
 
 '''
-
 import os
 import csv
 #****************************NEED TO MAKE THIS PATH WORK ANYWHERE ASK ALBERT
-path ='/Users/linh/Documents/GT/Homework/HW3/PyPoll/election_data_test.csv'
+path ='/Users/linh/Documents/GT/Homework/HW3/pythonpoll/election_data.csv'
 with open (path, newline = '') as f:
     reader = csv.reader(f, delimiter = ",")
     data = list(reader)
@@ -94,5 +93,3 @@ with open (path, newline = '') as f:
     print('Candidate: '+candidateTups[3][0]+' | '+ str(candidateTups[3][2])+('% ')+ '('+(str(candidateTups[3][1]))+')')
     print('-------------------------')
     print('Winner of the Election: '+ str(winner[0]))
-    
-    #*************NEED TO EXPORT ANSWER AS A TXT FILE ASK ALBERT
