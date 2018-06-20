@@ -36,8 +36,9 @@ store the value in a list called percentVotes
 '''
 import os
 import csv
-#****************************NEED TO MAKE THIS PATH WORK ANYWHERE ASK ALBERT
-path ='/Users/linh/Documents/GT/Homework/HW3/pythonpoll/election_data.csv'
+#File should be stored in the same folder
+path =path.os.join('.','election_data.csv')
+
 with open (path, newline = '') as f:
     reader = csv.reader(f, delimiter = ",")
     data = list(reader)
@@ -93,3 +94,17 @@ with open (path, newline = '') as f:
     print('Candidate: '+candidateTups[3][0]+' | '+ str(candidateTups[3][2])+('% ')+ '('+(str(candidateTups[3][1]))+')')
     print('-------------------------')
     print('Winner of the Election: '+ str(winner[0]))
+
+    #printing answers to a file called pollscript.txt
+    file = open('pollscript.txt','w')
+    file.write('Election Results \n')
+    file.write('------------------------------- \n')
+    file.write('Total Votes: '+ str(totalVotes)+'\n')
+    file.write('------------------------------- \n')
+    file.write('Candidate: '+candidateTups[0][0]+' | '+ str(candidateTups[0][2])+('% ')+ '('+(str(candidateTups[0][1]))+')'+'\n')
+    file.write('Candidate: '+candidateTups[1][0]+' | '+ str(candidateTups[1][2])+('% ')+ '('+(str(candidateTups[1][1]))+')'+'\n')
+    file.write('Candidate: '+candidateTups[2][0]+' | '+ str(candidateTups[2][2])+('% ')+ '('+(str(candidateTups[2][1]))+')'+'\n')
+    file.write('Candidate: '+candidateTups[3][0]+' | '+ str(candidateTups[3][2])+('% ')+ '('+(str(candidateTups[3][1]))+')'+'\n')
+    file.write('-------------------------------\n')
+    file.write('Winner of the Election: '+ str(winner[0]))
+    file.close()

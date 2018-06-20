@@ -40,22 +40,25 @@ For loop that will loop over the rows in the dataset:
 '''
 
 import csv
-#************************MAY NEED TO CHANGE THE PATH SO IT WORKS WHEREVER ASK ALBERT***************
-path = '/Users/linh/Documents/GT/Homework/HW3/PyBank/budget_data.csv'
-with open (path, newline = '') as f:
+#File should be stored in the same folder
+#Variables
+totalMonths = 0
+revList = []
+totalRev=0
+greatestI = 0
+dateI = ""
+greatestD = 0
+dateD = ""
+averageChange = 0
+#File should be stored in the same folder
+path = path.os.join('.','budget_data.csv')
+with open (path) as f:
     reader = csv.reader(f, delimiter = ",")
     data = list(reader)
     data.pop(0)
     
     #variables
     totalMonths = (len(data))
-    revList = []
-    totalRev=0
-    greatestI = 0
-    dateI = ""
-    greatestD = 0
-    dateD = ""
-    averageChange = 0
     
     #Conditionals
     #goes through rows in the data
@@ -88,4 +91,14 @@ with open (path, newline = '') as f:
     print('Greatest Increase in Profit: ' + str(dateI)+ '($'+str(greatestI)+')')
     print('Greatest Decrease in Profit: ' + str(dateD)+ '($'+str(greatestD)+')')
     print('-------------------------------')
-    #NEED TO ASK HOW TO EXPORT TXT FILE
+    #exporting answer in a text file called bankscript.txt
+    file = open("bankscript.txt", "w")
+    file.write("Financial analysis \n")
+    file.write("------------------------------- \n")
+    file.write('Total Months: ' +str(totalMonths)+'\n')
+    file.write('Total Revenue: $' + str(totalRev)+'\n')
+    file.write('Average change: $'+ '{:.2f}'.format(averageChange)+'\n')
+    file.write('Greatest Increase in Profit: ' + str(dateI)+ '($'+str(greatestI)+')'+'\n')
+    file.write('Greatest Decrease in Profit: ' + str(dateD)+ '($'+str(greatestD)+')'+'\n')
+    file.write('-------------------------------')
+    file.close()
