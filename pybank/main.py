@@ -51,7 +51,7 @@ greatestD = 0
 dateD = ""
 averageChange = 0
 #File should be stored in the same folder
-path = path.os.join('.','budget_data.csv')
+path = ('budget_data.csv')
 with open (path) as f:
     reader = csv.reader(f, delimiter = ",")
     data = list(reader)

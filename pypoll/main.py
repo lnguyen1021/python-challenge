@@ -37,7 +37,7 @@ store the value in a list called percentVotes
 import os
 import csv
 #File should be stored in the same folder
-path =path.os.join('.','election_data.csv')
+path = ('election_data.csv')
 
 with open (path, newline = '') as f:
     reader = csv.reader(f, delimiter = ",")
